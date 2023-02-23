@@ -1,188 +1,11 @@
-const productos = [
-    // Buzos
-    {
-        id: "buzo-01",
-        titulo: "Buzo Canguro Star Pilot",
-        imagen: "./img/buzos/01.jpg",
-        categoria: {
-            nombre: "Buzos",
-            id: "buzos"
-        },
-        precio: 16500
-    },
-    {
-        id: "buzo-02",
-        titulo: "Buzo Canguro Make Waves",
-        imagen: "./img/buzos/02.jpg",
-        categoria: {
-            nombre: "Buzos",
-            id: "buzos"
-        },
-        precio: 18000
-    },
-    {
-        id: "buzo-03",
-        titulo: "Buzo Canguro Star Pilot",
-        imagen: "./img/buzos/03.jpg",
-        categoria: {
-            nombre: "Buzos",
-            id: "buzos"
-        },
-        precio: 16500
-    },
-    {
-        id: "buzo-04",
-        titulo: "Buzo Canguro Circle Star",
-        imagen: "./img/buzos/04.jpg",
-        categoria: {
-            nombre: "Buzos",
-            id: "buzos"
-        },
-        precio: 19500
-    },
-    {
-        id: "buzo-05",
-        titulo: "Buzo Build Up",
-        imagen: "./img/buzos/05.jpg",
-        categoria: {
-            nombre: "Buzos",
-            id: "buzos"
-        },
-        precio: 14000
-    },
-    // Remeras
-    {
-        id: "remera-01",
-        titulo: "Remera Mc Star Htr",
-        imagen: "./img/remeras/01.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 5500
-    },
-    {
-        id: "remera-02",
-        titulo: "Remera Mc Dc Camo",
-        imagen: "./img/remeras/02.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 6000
-    },
-    {
-        id: "remera-03",
-        titulo: "Remera MC Pocket Label",
-        imagen: "./img/remeras/03.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 6000
-    },
-    {
-        id: "remera-04",
-        titulo: "Remera Mc Star Pilot Htr",
-        imagen: "./img/remeras/04.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 5500
-    },
-    {
-        id: "remera-05",
-        titulo: "Remera MC Star Pocket Htr",
-        imagen: "./img/remeras/05.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 6000
-    },
-    {
-        id: "remera-06",
-        titulo: "Remera Mc Reach For It",
-        imagen: "./img/remeras/06.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 7000
-    },
-    {
-        id: "remera-07",
-        titulo: "Remera Mc Reach For It",
-        imagen: "./img/remeras/07.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 7000
-    },
-    {
-        id: "remera-08",
-        titulo: "Remera Mc Dcshoescousa Htr",
-        imagen: "./img/remeras/08.jpg",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        },
-        precio: 7000
-    },
-    // Zapatillas
-    {
-        id: "zapatillas-01",
-        titulo: "Zapatillas Plaza Tc Ss",
-        imagen: "./img/zapatillas/01.jpg",
-        categoria: {
-            nombre: "Zapatillas",
-            id: "zapatillas"
-        },
-        precio: 26000
-    },
-    {
-        id: "zapatillas-02",
-        titulo: "Zapatillas Plaza Tc Ss",
-        imagen: "./img/zapatillas/02.jpg",
-        categoria: {
-            nombre: "Zapatillas",
-            id: "zapatillas"
-        },
-        precio: 26000
-    },
-    {
-        id: "zapatillas-03",
-        titulo: "Zapatillas Trase SD",
-        imagen: "./img/zapatillas/03.jpg",
-        categoria: {
-            nombre: "Zapatillas",
-            id: "zapatillas"
-        },
-        precio: 22500
-    },
-    {
-        id: "zapatillas-04",
-        titulo: "Zapatillas Stag Lite LE",
-        imagen: "./img/zapatillas/04.jpg",
-        categoria: {
-            nombre: "Zapatillas",
-            id: "zapatillas"
-        },
-        precio: 26000
-    },
-    {
-        id: "zapatillas-05",
-        titulo: "Zapatillas Pensford Ss Le",
-        imagen: "./img/zapatillas/05.jpg",
-        categoria: {
-            nombre: "Zapatillas",
-            id: "zapatillas"
-        },
-        precio: 35000
-    }
-];
+let productos = []
+
+fetch("./js/productos.json")
+.then(response => response.json())
+.then (data => {
+    productos = data;
+    cargarProductos(productos);
+})
 
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
@@ -214,8 +37,6 @@ function cargarProductos(productosElegidos) {
 
     actualizarBotonesAgregar();
 }
-
-cargarProductos(productos);
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -256,12 +77,30 @@ if (productosEnCarritoLS) {
 }
 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+        background: "linear-gradient(to right, #000000, #252525)",
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
     if(productosEnCarrito.some(producto => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
+
+        productoCategoria.categoria.nombre
     } else {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);

@@ -85,6 +85,12 @@ botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
     productosEnCarrito.length = 0;
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    swal({
+        title: "Vaciaste el carrito",
+        text: "Has vaciado el carrito por completo",
+        icon: "warning",
+        button: "OK",
+    });
     cargarProductosCarrito();
 }
 
@@ -104,5 +110,12 @@ function comprarCarrito() {
     contenedorCarritoProductos.classList.add("disabled");
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
+
+    swal({
+        title: "Compraste los productos",
+        text: "El gasto total te llegará a tu tarjeta",
+        icon: "success",
+        button: "OK",
+    });
 
 }
