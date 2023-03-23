@@ -1,14 +1,14 @@
-import { FaCartArrowDown } from "react-icons/fa";
-import './CartWidget.css';
+import { FaCartPlus } from 'react-icons/fa'
+import './CartWidget.scss'
 
 const CartWidget = () => {
 
     return (
-        <div className="cart-widget">
-            <FaCartArrowDown className="cart-icon"/>
+        <div className='cart-widget'>
+            <FaCartPlus className='cart-icon'/>
             <span>0</span>
         </div>
     )
 }
 
-export default CartWidget;
+export default CartWidget
