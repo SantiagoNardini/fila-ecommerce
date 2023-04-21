@@ -14,14 +14,6 @@ export const CartProvider = ({children}) => {
     const removerItem = (id) => {
         setCart( cart.filter((prod) => prod.id !== id) )
     }
-  
-    // const editCantidad = (id, num) => {
-    //     const _cart = cart.slice()
-    //     const item = _cart.find((prod) => prod.id === id)
-    //     item.cantidad += num
-
-    //     setCart(_cart)
-    // }
 
     const isInCart = (id) => {
       return cart.some((prod) => prod.id === id)
