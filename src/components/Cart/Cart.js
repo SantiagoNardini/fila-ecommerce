@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import './Cart.scss'
 
 const Cart = () => {
   const { cart, vaciarCarrito, removerItem, totalCarrito } = useContext(CartContext);
@@ -22,22 +23,21 @@ const Cart = () => {
           <hr />
 
           {cart.map((item) => (
-            <div key={item.id}>
+            <div className="productCart" key={item.id}>
               <h4>{item.name}</h4>
-              <img src={item.img} />
+              <img className='imgCart' src={item.img} />
               <div>
-                <small>
-                  Cantidad: {item.cantidad} Precio unitario: {item.price}
-                </small>
+                  <p className="categoriaCart">Cantidad: {item.cantidad} </p>
+                  <p className="categoriaCart">Precio unitario: ${item.price}</p>
               </div>
-              <p>Precio total: {item.price * item.cantidad}</p>
+              <p className="precioCart">Total: ${item.price * item.cantidad}</p>
               <button onClick={() => removerItem(item.id)} className="btn btn-danger"><BsFillTrash3Fill /> </button>
               <hr/>
             </div>
           ))
           }
           
-          <h3>TOTAL: {totalCarrito()}</h3>
+          <h3>Total: ${totalCarrito()}</h3>
           <button onClick={vaciarCarrito} className="btn btn-danger m-2">Vaciar carrito</button>
       
     </div>

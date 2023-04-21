@@ -1,5 +1,6 @@
 .itemDetail{
-padding: 50px;
-align-items: center;
-
+    max-width: 900px;
+    min-height: 90vh;
+    margin: 40px auto;
+    padding: 10px;
 }

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { LoginContext } from '../../context/LoginContext'
 
-export const Navbar = ({red}) => {
+export const Navbar = () => {
     const { user, logout } = useContext(LoginContext)
 
     return (
-        <header className="header" style={{backgroundColor: red ? 'red' : 'darkcyan'}}>
+        <header className="header">
             <div className="header__container">
                 <img src={logo} className="header__logo" alt='logo'/>
 
@@ -19,7 +19,6 @@ export const Navbar = ({red}) => {
                     <Link to='/productos/buzos' className="navbar__link">Buzos</Link>
                     <Link to='/productos/pantalones' className="navbar__link">Pantalones</Link>
                     <Link to='/productos/calzado' className="navbar__link">Calzado</Link>
-                    <Link to='/nosotros' className="navbar__link">Nosotros</Link>
                 </nav>
 
                 <CartWidget />

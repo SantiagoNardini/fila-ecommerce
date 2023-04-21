@@ -1,0 +1,36 @@
+.imgCart {
+    object-fit: contain;
+        width: 90%;
+        height: 90%;
+        margin: auto;
+    }
+
+    .precioCart{
+        margin-top: 5px;
+        color: black;
+        font-size: 22px;
+        font-weight: 500;
+
+    }
+
+    .categoriaCart{
+        text-align: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        outline: auto;
+        outline-color: #797979;
+
+    }
+
+    .productCart {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+        margin: 10px;
+        padding: 12px;
+        min-width: 250px;
+        box-shadow: 2px 2px 8px #797979;
+        border-radius: 6px;
+    }

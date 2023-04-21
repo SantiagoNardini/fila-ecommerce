@@ -1,0 +1,23 @@
+.imgItem {
+    object-fit: contain;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    
+}
+
+.productCardDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    padding: 16px;
+    box-shadow: 2px 2px 8px #797979;
+    border-radius: 6px;
+}
+
+.itemDescription{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
