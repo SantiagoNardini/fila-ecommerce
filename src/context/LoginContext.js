@@ -1,57 +1,66 @@
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
+import { signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { auth, provider } from "../firebase/config";
+import Swal from 'sweetalert2'
 
 
 export const LoginContext = createContext()
 
-const MOCK_USERS = [
-    {
-        id: 1,
-        email: 'santiagonardini@coder.com',
-        password: 'coder'
-    },
-    {
-        id: 2,
-        email: 'santiago@coder.com',
-        password: 'coder'
-    },
-    {
-        id: 3,
-        email: 's@n.com',
-        password: '123'
-    },
-]
 
 export const LoginProvider = ({children}) => {
     const [user, setUser] = useState({
         email: null,
         logged: false
     })
-    console.log(user)
+
+    const register = (values) => {
+        createUserWithEmailAndPassword(auth, values.email, values.password)
+            .catch((err) => console.log(err))
+    }
 
     const login = (values) => {
-        const match = MOCK_USERS.find((user) => user.email === values.email && user.password === values.password)
+        signInWithEmailAndPassword(auth, values.email, values.password)
+            .catch((err) => console.log(err))
+    }
 
-        if (match) {
-            setUser({
-                email: match.email,
-                logged: true
+    const googleLogin = () => {
+        signInWithPopup(auth, provider)
+            .then((user) => {
+                console.log(user)
             })
-        }
     }
 
     const logout = () => {
-        setUser({
-            email: null,
-            logged: false
-        })
+        signOut(auth)
+            .then(() => {
+                setUser({
+                    email: null,
+                    logged: false
+                })
+            })
+
     }
+    
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser({
+                    email: user.email,
+                    logged: true
+                })
+            } else {
+                logout()
+            }
+        })
+    }, [])
 
     return (
         <LoginContext.Provider value={{
             user,
             login,
-            logout
+            logout,
+            register,
+            googleLogin
         }}>
             {children}
         </LoginContext.Provider>
