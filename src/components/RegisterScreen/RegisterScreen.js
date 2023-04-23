@@ -45,11 +45,11 @@ const RegisterScreen = () => {
                         onChange={handleChange}
                         type={'password'}
                         className="form-control my-2"
-                        placeholder='Contraseña'
+                        placeholder='Contraseña (6 caracteres min)'
                     />
 
                     <button className='btn btn-primary' type='submit'>Registrarme</button>
-                    <Link to={"/login"}>Ya estoy registrado</Link>
+                    <Link className='btn btn-secondary' to={"/login"}>Ya estoy registrado</Link>
                 </form>
             </div>
         </div>

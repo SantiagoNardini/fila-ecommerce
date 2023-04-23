@@ -50,7 +50,7 @@ const LoginScreen = () => {
                     />
 
                     <button className='btn btn-primary' type='submit'>Ingresar</button>
-                    <Link to={"/register"}>Registrarme</Link>
+                    <Link className='btn btn-secondary' to={"/register"}>Registrarme</Link>
                 </form>
                 <button className='btn btn-outline-primary' onClick={googleLogin}>Ingresar con google</button>
             </div>

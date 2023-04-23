@@ -32,7 +32,6 @@ const Cart = () => {
               </div>
               <p className="precioCart">Total: ${item.price * item.cantidad}</p>
               <button onClick={() => removerItem(item.id)} className="btn btn-danger"><BsFillTrash3Fill /> </button>
-              <hr/>
             </div>
           ))
           }

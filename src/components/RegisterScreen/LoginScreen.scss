@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: darkcyan;
+    background-color: #002964;
 
     .login {
         width: 500px;
@@ -12,4 +12,22 @@
         background-color: white;
         border-radius: 20px;
     }
+}
+
+.btn-primary{
+    margin-bottom: 12px;
+}
+
+.btn-secondary{
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+.btn-success{
+    margin-top: 12px;
+}
+
+
+.registerLogin{
+    margin-left: 10px;
 }
