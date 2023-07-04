@@ -8,6 +8,17 @@
     --clr-red: #961818;
 }
 
+footer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+
+}
+
 * {
     margin: 0;
     padding: 0;
