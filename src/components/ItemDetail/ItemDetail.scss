@@ -1,20 +1,26 @@
 .imgItem {
     object-fit: contain;
-    width: 90%;
-    height: 90%;
-    margin: auto;
+    max-width: 50%;
+    height: auto;
     
 }
 
-.productCardDetail {
+.productCard {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    width: 30%;
+    width: 100%;
     margin: auto;
     padding: 16px;
     box-shadow: 2px 2px 8px #797979;
     border-radius: 6px;
+}
+
+.productCardDetail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+    width: 30%;
 }
 
 .itemDescription{

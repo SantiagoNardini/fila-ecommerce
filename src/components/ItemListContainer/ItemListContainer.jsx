@@ -5,7 +5,11 @@ import { useParams } from 'react-router-dom'
 import Loader from '../Loader/Loader'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../firebase/config'
-
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+  
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
@@ -35,14 +39,20 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-        <div className="container my-5">
-            {loading
-                ? <Loader />
-                : <ItemList items={productos} />
-            }
+        
+        <React.Fragment>
+        <CssBaseline />
+        <Container maxWidth="xl" sx={{ bgcolor: '#cfe8fc' }}>
+        <Divider textAlign="left" className='divider' sx={{ fontWeight: 'bold'}}>{ categoryId ? `Indumentaria / ${categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}` : 'Todos los productos'}</Divider>
+        {loading
+            ? <Loader />
+            : <ItemList items={productos} />
+        }
+        </Container>
+      </React.Fragment>
 
-        </div>
     )
+
 }
 
 export default ItemListContainer

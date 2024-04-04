@@ -1,6 +1,3 @@
-.itemDetail{
-    max-width: 900px;
-    min-height: 90vh;
-    margin: 40px auto;
-    padding: 10px;
+.detailContainer{
+    margin: 60px;
 }

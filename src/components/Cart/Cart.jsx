@@ -11,8 +11,9 @@ const Cart = () => {
       return (
         <div className="container my-5">
           <h2>No tienes productos agregados</h2>
+          <h5>Una vez que añadas algo a tu carrito, aparecerá acá. ¿Listo para empezar?</h5>
           <hr />
-          <Link className="btn btn-primary" to="/">Volver</Link>
+          <Link className="btn btn-primary" to="/">Empezar a comprar</Link>
         </div>
       )
   }
