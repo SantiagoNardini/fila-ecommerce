@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import { FaCartPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import './CartWidget.scss'
@@ -20,16 +19,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   }));
   
   export default function CartWidget() {
-      const { totalCantidad} = useContext(CartContext)
+      const {totalCantidad} = useContext(CartContext)
     return (
-        <Link to="/cart">
-          <Tooltip title="Delete">
-      <IconButton aria-label="cart">
-        <StyledBadge badgeContent={totalCantidad()} color="secondary">
-          <ShoppingCartIcon />
-        </StyledBadge>
-      </IconButton>
-      </Tooltip>
+      <Link to="/cart">
+        <Tooltip title="Cart" arrow>
+          <IconButton aria-label="cart" color="primary">
+            <StyledBadge badgeContent={totalCantidad()}>
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
+        </Tooltip>
       </Link>
       
     );

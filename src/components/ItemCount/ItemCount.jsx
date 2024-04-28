@@ -1,3 +1,5 @@
+import * as React from 'react';
+import Button from '@mui/material/Button';
 
 const ItemCount = ({stock, cantidad, setCantidad, agregar}) => {
 
@@ -33,7 +35,7 @@ const ItemCount = ({stock, cantidad, setCantidad, agregar}) => {
 
             <br/>
 
-            <button disabled={stock === 0} onClick={agregar} className="btn btn-success">Agregar al carrito</button>
+            <Button variant="contained" disabled={stock === 0} onClick={agregar} >Agregar al carrito</Button>
         </div>
     )
 }

@@ -1,12 +1,13 @@
-
-
 .header {
-    background-color: #faf4dc;
+    background-color: white;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
     
     .header__container {
-        max-width: 900px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 20px 0;
     
         display: flex;
         justify-content: space-between;
@@ -24,10 +25,9 @@
             gap: 16px;
 
             .navbar__link {
-                font-size: 24px;
+                font-size: 20px;
                 cursor: pointer;
-                font-weight: 700;
-                color: #002964;
+                color: black;
                 margin: 0;
                 text-decoration: none;
                 &:hover {

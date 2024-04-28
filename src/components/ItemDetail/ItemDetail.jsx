@@ -23,12 +23,12 @@ const ItemDetail = ({item}) => {
 
     return (
 
-        <div className='productCard'>
+        <div className='productCardInfo'>
             <img className='imgItem' src={item.img} alt={item.name}/>
             <div className="productCardDetail">
             <h2>{item.name}</h2>
             {
-            item.stock >= 5 && <p><strong>Quedan {item.stock} unidades!</strong></p>
+            item.stock >= 1 && <p><strong>En Stock</strong></p>
             }
             {
             item.stock === 0 && 
@@ -43,7 +43,7 @@ const ItemDetail = ({item}) => {
             <p className="itemDescription">{item.description}</p>
             {
                 isInCart(item.id)
-                ?   <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                ?    <Button variant="outlined"><Link to="/cart" underline="none">Terminar mi compra</Link></Button>
                 :   <ItemCount 
                 stock={item.stock}
                 cantidad={cantidad}
