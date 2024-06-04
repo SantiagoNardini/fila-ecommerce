@@ -22,8 +22,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       const {totalCantidad} = useContext(CartContext)
     return (
       <Link to="/cart">
-        <Tooltip title="Cart" arrow>
-          <IconButton aria-label="cart" color="primary">
+        <Tooltip title="Cart" arrow sx={{ color: '#002964' }}>
+          <IconButton aria-label="cart">
             <StyledBadge badgeContent={totalCantidad()}>
               <ShoppingCartIcon />
             </StyledBadge>

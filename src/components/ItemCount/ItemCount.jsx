@@ -35,7 +35,7 @@ const ItemCount = ({stock, cantidad, setCantidad, agregar}) => {
 
             <br/>
 
-            <Button variant="contained" disabled={stock === 0} onClick={agregar} >Agregar al carrito</Button>
+            <Button variant="contained" disabled={stock === 0} onClick={agregar} sx={{mt: 2}} >Agregar al carrito</Button>
         </div>
     )
 }

@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+
 export const Navbar = () => {
     const { user, logout } = useContext(LoginContext)
 
@@ -28,10 +29,10 @@ export const Navbar = () => {
                 <div className='user'>
                 <Stack direction="row" spacing={1}>
                     <Tooltip title={user.email} arrow>
-                        <Avatar ><PersonIcon/></Avatar>
+                        <Avatar sx={{ color: '#002964' }} ><PersonIcon/></Avatar>
                     </Tooltip>
-                        <Avatar onClick={logout}><LogoutIcon/></Avatar>
-                        <Avatar><CartWidget /></Avatar>
+                        <Avatar onClick={logout} sx={{ color: '#002964' }}><LogoutIcon/></Avatar>
+                        <Avatar><CartWidget/></Avatar>
                 </Stack>
                 </div>
                 </nav>

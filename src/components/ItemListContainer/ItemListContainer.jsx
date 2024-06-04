@@ -42,8 +42,8 @@ const ItemListContainer = () => {
         
         <React.Fragment>
         <CssBaseline />
-        <Container maxWidth="xl" sx={{ bgcolor: '#cfe8fc' }}>
-        <Divider textAlign="left" className='divider' sx={{ fontWeight: 'bold'}}>{ categoryId ? `Indumentaria / ${categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}` : 'Todos los productos'}</Divider>
+        <Container maxWidth="xl">
+        <Divider textAlign="left" className='divider' sx={{ fontWeight: 'bold', color: '#002964' }}>{ categoryId ? `Indumentaria / ${categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}` : 'Todos los productos'}</Divider>
         {loading
             ? <Loader />
             : <ItemList items={productos} />
